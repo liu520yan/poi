@@ -32,7 +32,7 @@ public class ExcelView extends AbstractExcelView {
     protected void buildExcelDocument(Map<String, Object> model,
                                       HSSFWorkbook workbook, HttpServletRequest request, HttpServletResponse response) {
         // ambil data model yang dikirim oleh Spring Container
-
+        long t1 = System.currentTimeMillis();
         // buat nama file
         response.setHeader("Content-Disposition", "attachment; filename=\"karyawan-list.xls\"");
 
@@ -66,6 +66,21 @@ public class ExcelView extends AbstractExcelView {
 
         header.createCell(3).setCellValue("Bagian");
         header.getCell(3).setCellStyle(style);
+        header.createCell(3).setCellValue("Bagian1");
+        header.getCell(3).setCellStyle(style);
+        header.createCell(3).setCellValue("Bagian2");
+        header.getCell(3).setCellStyle(style);
+        header.createCell(3).setCellValue("Bagian3");
+        header.getCell(3).setCellStyle(style);
+        header.createCell(3).setCellValue("Bagian4");
+        header.getCell(3).setCellStyle(style);
+        header.createCell(3).setCellValue("Bagian5");
+        header.getCell(3).setCellStyle(style);
+        header.createCell(3).setCellValue("Bagian6");
+        header.getCell(3).setCellStyle(style);
+        header.createCell(3).setCellValue("Bagian7");
+        header.getCell(3).setCellStyle(style);
+
 
         int baris = 1;
 
@@ -75,7 +90,16 @@ public class ExcelView extends AbstractExcelView {
             dataBaris.createCell(1).setCellValue(karyawan.getNama());
             dataBaris.createCell(2).setCellValue(karyawan.getAlamat());
             dataBaris.createCell(3).setCellValue(karyawan.getBagian());
+            dataBaris.createCell(4).setCellValue(karyawan.getBagian1());
+            dataBaris.createCell(5).setCellValue(karyawan.getBagian1());
+            dataBaris.createCell(6).setCellValue(karyawan.getBagian1());
+            dataBaris.createCell(7).setCellValue(karyawan.getBagian1());
+            dataBaris.createCell(8).setCellValue(karyawan.getBagian1());
+            dataBaris.createCell(9).setCellValue(karyawan.getBagian1());
+            dataBaris.createCell(10).setCellValue(karyawan.getBagian1());
         }
+
+        System.out.println("导出数量 "+karyawans.size()+"总共花费" + (System.currentTimeMillis() - t1));
     }
 
 }

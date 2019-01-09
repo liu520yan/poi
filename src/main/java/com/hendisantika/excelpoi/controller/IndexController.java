@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -31,23 +32,17 @@ public class IndexController {
     @RequestMapping(value = "/dataKaryawan", method = RequestMethod.GET)
     public ModelAndView downloadExcel() {
 
-        List<Karyawan> karyawans = new ArrayList<Karyawan>();
-        karyawans.add(new Karyawan("01", "Saifi Ahmada", "Banjarmain", "AiTi"));
-        karyawans.add(new Karyawan("02", "Iyar Sudibyo", "Banjarmain", "AiTi"));
-        karyawans.add(new Karyawan("03", "Utar Sudibyo", "Banjarmain", "AiTi"));
-        karyawans.add(new Karyawan("04", "Wandi Sudibyo", "Banjarmain", "AiTi"));
-        karyawans.add(new Karyawan("05", "Yadi Sudibyo", "Banjarmain", "AiTi"));
-        karyawans.add(new Karyawan("06", "Dimas Sudibyo", "Banjarmain", "AiTi"));
-        karyawans.add(new Karyawan("07", "Firman Sudibyo", "Banjarmain", "AiTi"));
-        karyawans.add(new Karyawan("08", "Rizka Sudibyo", "Banjarmain", "AiTi"));
-        karyawans.add(new Karyawan("09", "Arya Sudibyo", "Banjarmain", "AiTi"));
-        karyawans.add(new Karyawan("10", "Dion Sudibyo", "Banjarmain", "AiTi"));
-        karyawans.add(new Karyawan("11", "Philip Sudibyo", "Banjarmain", "AiTi"));
-        karyawans.add(new Karyawan("12", "Ema Sudibyo", "Banjarmain", "AiTi"));
-        karyawans.add(new Karyawan("13", "Uzumaki Naruto", "Konohagakure", "AiTi"));
+        List<Karyawan> karyawans = new LinkedList<>();
+        for (int i = 0; i < 60000; i++) {
+            karyawans.add(new Karyawan("01", "Saifi Ahmada", "Banjarmain", "AiTi" ,"世界世界世界世界世界世界世界世界世界世界世界世界世界世界世界世界世界世界","世界世界世界世界世界世界世界世界世界世界世界世界世界世界世界世界世界世界","世界世界世界世界世界世界世界世界世界世界世界世界世界世界世界世界世界世界","世界世界世界世界世界世界世界世界世界世界世界世界世界世界世界世界世界世界","世界世界世界世界世界世界世界世界世界世界世界世界世界世界世界世界世界世界","世界世界世界世界世界世界世界世界世界世界世界世界世界世界世界世界世界世界","世界世界世界世界世界世界世界世界世界世界世界世界世界世界世界世界世界世界"));
+        }
 
         // excelView dengan data list karyawans akan diterima oleh resolver exvelView
-        return new ModelAndView("excelView", "karyawans", karyawans);
+
+        ModelAndView modelAndView = new ModelAndView("excelView", "karyawans", karyawans);
+
+
+        return modelAndView;
     }
 
 }
