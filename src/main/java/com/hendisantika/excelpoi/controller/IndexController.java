@@ -80,7 +80,7 @@ public class IndexController {
         for (BarCodeForm form : barCodeForms) {
             service.submit(
                     () -> {
-                        String forObject = template.getForObject("http://localhost:8081/user", String.class);
+                        String forObject = "1";
                         form.setCreateByName(forObject);
                         lists.add(form);
                     }
