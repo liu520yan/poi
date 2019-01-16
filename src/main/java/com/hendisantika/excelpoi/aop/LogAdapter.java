@@ -25,10 +25,16 @@ public class LogAdapter {
 
     @AfterReturning(value = "pubulicMethodPointcut()", returning = "result")
     public void after(JoinPoint joinPoint, Object result) {
-        String className = joinPoint.getTarget().getClass().getName();
+        String className = joinPoint.getSignature().getDeclaringType().getName();
         Object[] args = joinPoint.getArgs();
         String methodName = joinPoint.getSignature().getName();
-        log.info("Class Name: {} , methodName: {} , arg : {} , result: {}",className,methodName,args,result);
+        log.info("Class Name: {} , methodName: {} , arg : {} , result: {}", className, methodName, args, result);
+    }
+
+    @AfterThrowing("pubulicMethodPointcut()")
+    public void afterThrowing(JoinPoint joinPoint) {
+        joinPoint.getSignature();
+        System.out.println("异常出现之后...afterThrowing");
     }
 
 
