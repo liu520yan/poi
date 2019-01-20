@@ -10,10 +10,13 @@ import org.springframework.stereotype.Component;
  * Created by liuyan on 2019/1/16.
  */
 @Aspect
-@Component
 @Slf4j
 public class LogAdapter {
-    @Pointcut("execution(public * com.hendisantika.excelpoi.controller..*(..))")
+
+    public final String sss = "execution(public * com.hendisantika.excelpoi..*(..))";
+    public String aaa = "execution(public * com.hendisantika.excelpoi..*(..))";
+
+    @Pointcut(sss)
     public void pubulicMethodPointcut() {
     }
 

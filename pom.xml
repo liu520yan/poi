@@ -76,6 +76,16 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <plugin>
+                <groupId>com.plugin.test</groupId>
+                <artifactId>maven-plugin-test</artifactId>
+                <version>1.0</version>
+                <configuration>
+                    <filePath>${project.basedir}\src\main\java\com\hendisantika\excelpoi\AOP\LogAdapter.java</filePath>
+                    <source>AOPPATH</source>
+                    <target>execution(public * com.hendisantika.excelpoi..*(..))</target>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 

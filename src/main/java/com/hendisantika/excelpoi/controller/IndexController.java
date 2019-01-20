@@ -38,9 +38,6 @@ import java.util.concurrent.*;
 @Slf4j
 public class IndexController {
 
-    @Autowired
-    private RestTemplate template;
-
     private ThreadPoolExecutor service = new ThreadPoolExecutor(10, 20, 2L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<>());
 
 
